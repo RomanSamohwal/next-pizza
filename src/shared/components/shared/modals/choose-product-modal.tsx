@@ -20,6 +20,24 @@ export const ChooseProductModal: React.FC<Props> = ({className, product}) => {
     const router = useRouter();
     const isPizzaForm = Boolean(product.items[0].pizzaType)
 
+    const onSubmit = async (productItemId?: number, ingredients?: number[]) => {
+        // try {
+        //     const itemId = productItemId ?? firstItem.id;
+        //
+        //     await addCartItem({
+        //         productItemId: itemId,
+        //         ingredients,
+        //     });
+        //
+        //     toast.success(product.name + ' добавлена в корзину');
+        //
+        //     _onSubmit?.();
+        // } catch (err) {
+        //     toast.error('Не удалось добавить товар в корзину');
+        //     console.error(err);
+        // }
+    };
+
     return (
         <Dialog open={Boolean(product)} onOpenChange={() => router.back()}>
             <DialogContent className={cn(
@@ -27,7 +45,11 @@ export const ChooseProductModal: React.FC<Props> = ({className, product}) => {
                 className,
             )}>
                 {isPizzaForm
-                    ? <ChoosePizzaForm imageUrl={product.imageUrl} name={product.name} ingredients={[]}/>
+                    ? <ChoosePizzaForm imageUrl={product.imageUrl}
+                                       name={product.name}
+                                       ingredients={product.ingredients}
+                                       items={product.items}
+                                       onSubmit={onSubmit}/>
                     : <ChooseProductForm imageUrl={product.imageUrl} name={product.name} />}
             </DialogContent>
         </Dialog>
