@@ -1,12 +1,22 @@
 export const categories = [
-    {name: 'Пиццы'},
-    {name: 'Завтрак'},
-    {name: 'Закуски'},
-    {name: 'Коктейли'},
-    {name: 'Напитки'},
-]
+    {
+        name: 'Пиццы',
+    },
+    {
+        name: 'Завтрак',
+    },
+    {
+        name: 'Закуски',
+    },
+    {
+        name: 'Коктейли',
+    },
+    {
+        name: 'Напитки',
+    },
+];
 
-export const ingredients = [
+export const _ingredients = [
     {
         name: 'Сырный бортик',
         price: 179,
@@ -99,7 +109,7 @@ export const ingredients = [
     },
 ].map((obj, index) => ({ id: index + 1, ...obj }));
 
-export const products =  [
+export const products = [
     {
         name: 'Омлет с ветчиной и грибами',
         imageUrl: 'https://media.dodostatic.net/image/r:292x292/11EE7970321044479C1D1085457A36EB.webp',
